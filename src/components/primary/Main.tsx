@@ -1,4 +1,6 @@
 import React from 'react';
+//Components
+import Button from '../common/Button';
 
 const Main: React.FC = () => {
   return (

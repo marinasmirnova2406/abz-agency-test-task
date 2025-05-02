@@ -1,0 +1,29 @@
+@use "../../abstracts/mixins.scss" as *;
+@use "../../abstracts/variables.scss" as *;
+
+// Base Button
+.button {
+  height: 34px;
+  min-width: 100px;
+  @include flex-center;
+  padding: 4px 12px;
+  border: none;
+  border-radius: 80px;
+  background-color: $primary-color;
+  color: $text-black;
+  @include text-p1;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  // Hover
+  &:hover:not(:disabled) {
+    background-color: $primary-hover;
+  }
+
+  // Disabled
+  &:disabled {
+    background-color: #b4b4b4;
+    color: rgba(255, 255, 255, 0.87);
+    cursor: not-allowed;
+  }
+}

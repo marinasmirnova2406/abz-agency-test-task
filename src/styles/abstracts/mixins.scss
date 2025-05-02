@@ -22,3 +22,24 @@
 @mixin text-p1 {
   @include font($font-size-p1, 26px);
 }
+
+// Universal flexbox
+// ------------------------------------------------------------
+// $direction - flex-direction (default: row)
+// $justify - justify-content (default: flex-start)
+// $align - align-items (default: stretch)
+// $wrap - flex-wrap (default: nowrap)
+@mixin flex($direction: row, $justify: flex-start, $align: stretch, $wrap: nowrap) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: $wrap;
+}
+
+// Flexbox center-center
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
