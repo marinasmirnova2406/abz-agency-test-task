@@ -1,7 +1,17 @@
-import React from 'react';
+import React from "react";
+// Copmonents
+import Header from "./components/primary/Header";
+import Main from "./components/primary/Main";
+import Footer from "./components/primary/Footer";
 
 const App: React.FC = () => {
-  return <h1>Test Task</h1>;
+  return (
+    <>
+      <Header />
+      <Main />
+      <Footer />
+    </>
+  );
 };
 
 export default App;

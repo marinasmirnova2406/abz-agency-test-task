@@ -1,0 +1,7 @@
+@use '../abstracts/mixins.scss' as *;
+@use '../abstracts/variables.scss' as *;
+
+body {
+    @include text-p1;
+    background: $background-color;
+  }
