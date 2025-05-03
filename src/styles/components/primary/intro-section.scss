@@ -1,0 +1,56 @@
+@use "../../abstracts/mixins.scss" as *;
+@use "../../abstracts/variables.scss" as *;
+
+.intro-section {
+  width: 100%;
+  margin: 0 auto;
+  background-image: url("../assets/images/intro-banner.webp");
+  background-position: center bottom;
+  background-size: auto 160%;
+  background-repeat: no-repeat;
+  color: #ffffff;
+
+  // Extra Large (large screens)
+  @media (min-width: $breakpoint-xl) {
+    max-width: 1170px;
+  }
+
+  &__overlay {
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    padding-top: 40px;
+    padding-bottom: 71px;
+
+    // Medium (tablet)
+    @media (min-width: $breakpoint-md) {
+      padding-top: 89px;
+      padding-bottom: 88px;
+    }
+    // Large (desktop)
+    @media (min-width: $breakpoint-lg) {
+      padding-top: 164px;
+      padding-bottom: 163px;
+    }
+  }
+
+  &__content {
+    @include flex(column, flex-start, center);
+
+    // Medium (tablet)
+    @media (min-width: $breakpoint-md) {
+      max-width: 380px;
+    }
+  }
+
+  &__title {
+    @include heading-h1-normal;
+    text-align: center;
+    margin-bottom: 21px;
+  }
+
+  &__text {
+    @include text-p1;
+    text-align: center;
+    margin-bottom: 32px;
+  }
+}

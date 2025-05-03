@@ -1,13 +1,12 @@
 import React from 'react';
 //Components
 import Button from '../common/Button';
+import IntroSection from './Sections/IntroSection';
 
 const Main: React.FC = () => {
   return (
     <main className="main">
-      <div className="main__container">
-        Main
-      </div>
+      <IntroSection />
     </main>
   );
 };
