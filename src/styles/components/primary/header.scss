@@ -1,0 +1,29 @@
+@use "../../abstracts/mixins.scss" as *;
+@use "../../abstracts/variables.scss" as *;
+
+.header {
+    @include flex(column, center);
+    background-color: #FFFFFF;
+
+    &__top-color-block {
+        background-color: #161616;
+        width: 100%;
+        height: 60px;
+    }
+
+    &__content {
+        height: 60px;
+        @include flex(row, space-between, center);
+    }
+
+    &__logo {
+        width: 104px;
+        height: 26px;
+    }
+
+    &__nav {
+        gap: 10px;
+        @include flex-center;
+    }
+
+  }

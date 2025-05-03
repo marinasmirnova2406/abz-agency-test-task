@@ -5,9 +5,14 @@ $secondary-color: #00BDD3;
 $background-color: #F8F8F8;
 $text-black: rgba(0, 0, 0, 0.87);
 
-
 // Typography
 $font-main: 'Nunito', sans-serif;
 $font-size-h1: 40px;
 $font-size-p1: 16px;
+
+// Breakpoints
+$breakpoint-sm: 360px;  // small devices (mobile)
+$breakpoint-md: 768px;  // medium devices (tablet)
+$breakpoint-lg: 1024px; // large devices
+$breakpoint-xl: 1200px; // extra large
 

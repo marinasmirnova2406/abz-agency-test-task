@@ -1,7 +1,30 @@
-@use '../abstracts/mixins.scss' as *;
-@use '../abstracts/variables.scss' as *;
+@use "../abstracts/mixins.scss" as *;
+@use "../abstracts/variables.scss" as *;
 
 body {
-    @include text-p1;
-    background: $background-color;
+  @include text-p1;
+  background: $background-color;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 0;
+
+  // Small (mobile)
+  @media (min-width: $breakpoint-sm) {
+    max-width: 328px;
   }
+  // Medium (tablet)
+  @media (min-width: $breakpoint-md) {
+    max-width: 704px;
+  }
+  // Large (desktop)
+  @media (min-width: $breakpoint-lg) {
+    max-width: 904px;
+  }
+  // Extra Large (large screens)
+  @media (min-width: $breakpoint-xl) {
+    max-width: 1170px;
+  }
+}
