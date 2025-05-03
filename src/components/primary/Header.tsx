@@ -7,7 +7,6 @@ import Button from "../common/Button";
 const Header: React.FC = () => {
   return (
     <header className="header">
-      <div className="header__top-color-block"></div>
       <div className="header__content container">
         <img src={logo} alt="TestTask Logo" className="header__logo" />
         <nav className="header__nav">

@@ -1,0 +1,20 @@
+@use "../../abstracts/mixins.scss" as *;
+@use "../../abstracts/variables.scss" as *;
+
+.user-card {
+    @include flex(column, flex-start, center);
+    max-width: 370px;
+    padding: 20px;
+    background-color: #FFFFFF;
+    border-radius: 16px;
+
+    &__img {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 20px;
+    }
+
+    &__name {
+        margin-bottom: 20px;
+    }
+}

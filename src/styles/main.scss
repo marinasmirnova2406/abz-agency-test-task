@@ -12,6 +12,8 @@
 /* // COMPONENTS */
 /* // Common */
 @use 'components/common/button';
+@use 'components/common/user-card.scss';
 /* // Primary */
 @use 'components/primary/header.scss';
 @use 'components/primary/intro-section.scss';
+@use 'components/primary/user-section.scss';

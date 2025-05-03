@@ -1,0 +1,11 @@
+@use "../../abstracts/mixins.scss" as *;
+@use "../../abstracts/variables.scss" as *;
+
+.users-section {
+    padding-top: 140px;
+
+    &__title {
+        margin-bottom: 50px;
+    }
+
+}

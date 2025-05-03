@@ -11,6 +11,16 @@ body {
   margin: 0 auto;
   padding: 0 0;
 
+span, p {
+  @include text-p1;
+  color: $text-black;
+}
+
+h1 {
+  @include heading-h1-normal;
+  color: $text-black;
+}
+
   // Small (mobile)
   @media (min-width: $breakpoint-sm) {
     max-width: 328px;

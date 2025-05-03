@@ -5,12 +5,6 @@
     @include flex(column, center);
     background-color: #FFFFFF;
 
-    &__top-color-block {
-        background-color: #161616;
-        width: 100%;
-        height: 60px;
-    }
-
     &__content {
         height: 60px;
         @include flex(row, space-between, center);
