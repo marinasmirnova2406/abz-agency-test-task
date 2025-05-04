@@ -2,6 +2,7 @@ import React from "react";
 // Components
 import Button from "../../common/Button";
 import UserCard from "../../common/UserCard";
+import UserList from "../UserList";
 
 const UsersSection: React.FC = () => {
   return (
@@ -9,7 +10,7 @@ const UsersSection: React.FC = () => {
       <div className="users-section__content container">
         <h1 className="intro-section__title">Working with GET request</h1>
         Users
-        <UserCard />
+        <UserList />
       </div>
     </section>
   );

@@ -55,7 +55,6 @@ module.exports = (_, argv) => {
       new HtmlWebpackPlugin({
         template: "public/template.html",
         inject: "body",
-        favicon: path.resolve(__dirname, "public", "favicon.ico"),
       }),
       new CopyWebpackPlugin({
         patterns: [
@@ -80,8 +79,12 @@ module.exports = (_, argv) => {
     devServer: {
       port: 3000,
       hot: true,
-      static: false,
+      static: path.resolve(__dirname, 'public'),
       historyApiFallback: true,
+      client: {
+        overlay: true,
+        logging: 'info',
+      },
     },
     devtool: prod ? false : "source-map",
   };
