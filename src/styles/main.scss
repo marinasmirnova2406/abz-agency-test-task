@@ -14,8 +14,12 @@
 @use 'components/common/button';
 @use 'components/common/user-card.scss';
 @use 'components/common/preloader.scss';
+@use 'components/common/inputs.scss';
 /* // Primary */
 @use 'components/primary/header.scss';
 @use 'components/primary/intro-section.scss';
 @use 'components/primary/user-section.scss';
 @use 'components/primary/user-list.scss';
+@use 'components/primary/form-section.scss';
+/* // Forms */
+@use 'components/forms/register-form.scss';

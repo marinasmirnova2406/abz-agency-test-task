@@ -1,0 +1,188 @@
+@use "../../abstracts/mixins.scss" as *;
+@use "../../abstracts/variables.scss" as *;
+
+// -------------------------------------------------------
+// ------------------- Base Input ------------------------
+// -------------------------------------------------------
+.input-wrapper {
+  @include flex(column, flex-start, flex-start);
+  position: relative;
+
+  width: 100%;
+  max-width: 380px;
+  height: 54px;
+  border: 1px solid #d0cfcf;
+  border-radius: 4px;
+
+  .input-label {
+    position: absolute;
+    left: 16px;
+    top: -7px;
+    padding-left: 4px;
+    padding-right: 3px;
+    background-color: $background-color;
+    font-size: 12px;
+    color: #7e7e7e;
+    line-height: 14px;
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out;
+
+    &--active {
+      opacity: 1;
+    }
+  }
+
+  &--error {
+    border: 2px solid #cb3d40;
+
+    .input-label {
+      color: #cb3d40;
+    }
+  }
+
+  .input__error {
+    position: absolute;
+    left: 16px;
+    bottom: -4px;
+    transform: translateY(100%);
+    font-size: 12px;
+    line-height: 14px;
+    color: #cb3d40;
+  }
+
+  .input {
+    width: 100%;
+    height: 100%;
+    padding: 14px 16px;
+    color: #7e7e7e;
+  }
+}
+
+// -------------------------------------------------------
+// ------------------- Radio Input -----------------------
+// -------------------------------------------------------
+
+.radio-group {
+  width: 100%;
+  max-width: 380px;
+  @include flex(column, flex-start, flex-start);
+
+  &__title {
+    margin-bottom: 11px;
+  }
+
+  .radio {
+    @include flex(row, flex-start, center);
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    padding-left: 32px;
+    margin-bottom: 7px;
+
+    input[type="radio"] {
+      display: none;
+    }
+
+    .radio__custom-round {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translate(-50%, -50%);
+      width: 20px;
+      height: 20px;
+      border: 1px solid #d0cfcf;
+      border-radius: 50%;
+      transition: border 0.3s ease;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #00bdd3;
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+    }
+
+    input[type="radio"]:checked + .radio__custom-round {
+      border-color: #00bdd3;
+
+      &::after {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+      }
+    }
+  }
+}
+
+// -------------------------------------------------------
+// -------------------- File Input -----------------------
+// -------------------------------------------------------
+
+.file-input {
+  @include flex(column, flex-start, center);
+  width: 100%;
+  max-width: 380px;
+
+  .file-input__wrapper {
+    display: flex;
+    width: 100%;
+  }
+
+  &__button {
+    height: 54px;
+    padding: 14px 15px;
+    border: 1px solid $text-black;
+    border-radius: 4px 0 0 4px;
+    cursor: pointer;
+    white-space: nowrap;
+    @include flex(row, flex-start, center);
+  }
+
+  &__filename {
+    height: 54px;
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: 12px 16px 14px 16px;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border: 1px solid #d0cfcf;
+    border-left: none;
+    border-radius: 0 4px 4px 0;
+    color: #7e7e7e;
+
+    &--filled {
+      color: $text-black;
+    }
+  }
+
+  &--error {
+    position: relative;
+    .file-input__button {
+      border: 2px solid #cb3d40;
+    }
+
+    .file-input__filename {
+      border: 2px solid #cb3d40;
+      border-left: none;
+      color: $text-black;
+    }
+
+    .file-input__error {
+      position: absolute;
+      left: 16px;
+      bottom: -4px;
+      transform: translateY(100%);
+      font-size: 12px;
+      line-height: 14px;
+      color: #cb3d40;
+    }
+  }
+}

@@ -99,24 +99,3 @@ export const getAllUsers = async (): Promise<User[]> => {
 };
 
 
-
-export const getAllUsersAtOnce = async (): Promise<User[]> => {
-    try {
-      // Сначала делаем минимальный запрос, чтобы просто узнать общее количество пользователей
-      const metaResponse = await axios.get<GetUsersResponse>(`${API_URL}/users`, {
-        params: { page: 1, count: 1 },
-      });
-  
-      const totalUsers = metaResponse.data.total_users;
-  
-      // Далее — одним большим запросом стягиваем всех
-      const fullResponse = await axios.get<GetUsersResponse>(`${API_URL}/users`, {
-        params: { page: 1, count: totalUsers },
-      });
-  
-      return fullResponse.data.users;
-    } catch (error) {
-      console.error("❌ Failed to fetch all users at once:", error);
-      return [];
-    }
-  };
