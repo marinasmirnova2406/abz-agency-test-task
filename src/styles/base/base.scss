@@ -4,6 +4,7 @@
 body {
   @include text-p1;
   background: $background-color;
+  color: $text-black;
 }
 
 .container {
@@ -13,12 +14,10 @@ body {
 
 span, p {
   @include text-p1;
-  color: $text-black;
 }
 
 h1 {
   @include heading-h1-normal;
-  color: $text-black;
 }
 
   // Small (mobile)

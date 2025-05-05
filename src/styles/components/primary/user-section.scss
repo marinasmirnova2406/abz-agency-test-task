@@ -2,10 +2,21 @@
 @use "../../abstracts/variables.scss" as *;
 
 .users-section {
-    padding-top: 140px;
+  padding-top: 140px;
+  width: 100%;
 
-    &__title {
-        margin-bottom: 50px;
-    }
+  &__content {
+    width: 100%;
+    @include flex(column, flex-start, center);
+  }
 
+  &__title {
+    margin-bottom: 50px;
+    text-align: center;
+  }
+
+  .user-list {
+    margin-bottom: 50px;
+    width: 100%;
+  }
 }

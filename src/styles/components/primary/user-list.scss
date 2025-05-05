@@ -1,0 +1,15 @@
+@use "../../abstracts/mixins.scss" as *;
+@use "../../abstracts/variables.scss" as *;
+
+.user-list {
+  @include grid(20px, repeat(1, minmax(0, 1fr)));
+
+  // Medium (tablet)
+  @media (min-width: $breakpoint-md) {
+    @include grid(16px, repeat(2, minmax(0, 1fr)));
+  }
+  // Large (desktop)
+  @media (min-width: $breakpoint-lg) {
+    @include grid(29px, repeat(3, minmax(0, 1fr)));
+  }
+}

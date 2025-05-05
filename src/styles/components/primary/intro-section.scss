@@ -35,6 +35,7 @@
 
   &__content {
     @include flex(column, flex-start, center);
+    color: #ffffff;
 
     // Medium (tablet)
     @media (min-width: $breakpoint-md) {
