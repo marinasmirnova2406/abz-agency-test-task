@@ -56,8 +56,14 @@ export const RegisterForm: React.FC = () => {
   const [positions, setPositions] = useState<Position[]>([]);
   const [isSuccess, setIsSuccess] = useState(false);
 
+  // Prevents double API call in development
+  const hasFetched = React.useRef(false);
+
   // Load available positions once
   useEffect(() => {
+    if (hasFetched.current) return;
+    hasFetched.current = true;
+
     getPositions().then(setPositions);
   }, []);
 

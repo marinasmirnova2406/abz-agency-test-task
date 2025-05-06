@@ -1,11 +1,14 @@
 {
+  "homepage": "https://marinasmirnova2406.github.io/abz-agency-test-task",
   "name": "abz-agency-test-task",
   "version": "1.0.0",
   "description": "Frontend Test Assignment for abz.agency",
   "main": "index.js",
   "scripts": {
     "dev": "webpack serve --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
@@ -30,6 +33,7 @@
     "copy-webpack-plugin": "^13.0.0",
     "css-loader": "^7.1.2",
     "css-minimizer-webpack-plugin": "^7.0.2",
+    "gh-pages": "^6.3.0",
     "html-webpack-plugin": "^5.6.3",
     "image-webpack-loader": "^8.1.0",
     "mini-css-extract-plugin": "^2.9.2",

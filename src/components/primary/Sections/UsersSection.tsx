@@ -12,6 +12,9 @@ const UsersSection: React.FC = () => {
     "initial"
   );
 
+  // Prevents double API call in development
+  const hasFetched = React.useRef(false);
+
   //  Global users from context
   const { users, setUsers, totalUsers, setTotalUsers } = useUserContext();
 
@@ -20,6 +23,9 @@ const UsersSection: React.FC = () => {
 
   // Fetch all users on mount
   useEffect(() => {
+    if (hasFetched.current) return;
+    hasFetched.current = true;
+
     const loadUsers = async () => {
       setLoadState("initial");
 
