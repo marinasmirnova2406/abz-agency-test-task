@@ -1,6 +1,7 @@
 @use "../../abstracts/mixins.scss" as *;
 @use "../../abstracts/variables.scss" as *;
 
+// Hero section at the top of the page
 .intro-section {
   width: 100%;
   margin: 0 auto;
@@ -15,6 +16,7 @@
     max-width: 1170px;
   }
 
+  // Dark overlay to make text readable
   &__overlay {
     background: rgba(0, 0, 0, 0.5);
     width: 100%;
@@ -33,6 +35,7 @@
     }
   }
 
+  // Content container (title + text + button)
   &__content {
     @include flex(column, flex-start, center);
     color: #ffffff;

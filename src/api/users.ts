@@ -26,6 +26,10 @@ interface GetUsersResponse {
   };
 }
 
+// -----------------------------------------------------------
+// ------------------ GET ALL USERS --------------------------
+// -----------------------------------------------------------
+
 export const getAllUsers = async (): Promise<User[]> => {
   // Load 50 users per request
   const usersOnPage = 50;
@@ -71,8 +75,7 @@ export const getAllUsers = async (): Promise<User[]> => {
         allUsers.push(...result.value.data.users);
 
         // If the request failed — give it a second chance
-      } 
-      else {
+      } else {
         try {
           const retryResponse = await axios.get<GetUsersResponse>(
             `${API_URL}/users`,
@@ -98,4 +101,28 @@ export const getAllUsers = async (): Promise<User[]> => {
   }
 };
 
+// -----------------------------------------------------------
+// --------------------- GET USER BY ID ----------------------
+// -----------------------------------------------------------
 
+export const getUserById = async (id: number): Promise<User> => {
+  const res = await fetch(`${API_URL}/users/${id}`);
+  if (!res.ok) throw new Error("Failed to fetch user");
+  const data = await res.json();
+  return data.user;
+};
+
+// -----------------------------------------------------------
+// ------------------ REGISTER USER (POST) -------------------
+// -----------------------------------------------------------
+
+export const registerUser = async (formData: FormData, token: string) => {
+  const res = await axios.post(`${API_URL}/users`, formData, {
+    headers: {
+      Token: token,
+      "Content-Type": "multipart/form-data",
+    },
+  });
+
+  return res.data;
+};

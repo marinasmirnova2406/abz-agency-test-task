@@ -1,20 +1,24 @@
 @use "../../abstracts/mixins.scss" as *;
 @use "../../abstracts/variables.scss" as *;
 
+// Section that shows user cards
 .users-section {
   padding-top: 140px;
   width: 100%;
 
+  // Container for title + user list + button
   &__content {
     width: 100%;
     @include flex(column, flex-start, center);
   }
 
+  // Title of the section
   &__title {
     margin-bottom: 50px;
     text-align: center;
   }
 
+  // Wrapper for user cards
   .user-list {
     margin-bottom: 50px;
     width: 100%;

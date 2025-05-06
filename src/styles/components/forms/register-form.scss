@@ -1,23 +1,56 @@
 @use "../../abstracts/mixins.scss" as *;
 @use "../../abstracts/variables.scss" as *;
 
+// Wrapper for the whole form
 .register-form {
   width: 100%;
   @include flex(column, flex-start, center);
 
+  // Page title
+  &__title {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  // Margin between text/email/phone inputs
   .input-wrapper {
     margin-bottom: 50px;
 
+    // Less spacing before radio group
     &:nth-of-type(3) {
       margin-bottom: 43px;
     }
   }
 
+  // Radio section spacing
   .radio-group {
     margin-bottom: 40px;
   }
 
+  // File input spacing
   .file-input {
     margin-bottom: 50px;
+  }
+
+  // Success message block (shown after registration)
+  &__success {
+    height: 742px;
+    @include flex(column, flex-start, center);
+    opacity: 0;
+    // Smooth appearance animation
+    animation: fadeIn 0.6s ease forwards;
+
+    // Title for success message
+    &__title {
+      margin-bottom: 150px;
+      text-align: center;
+    }
+  }
+}
+
+// Fade-in animation used for success message
+@keyframes fadeIn {
+  to {
+    opacity: 1;
   }
 }

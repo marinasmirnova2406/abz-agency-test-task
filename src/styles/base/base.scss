@@ -13,13 +13,14 @@ body {
   margin: 0 auto;
   padding: 0 0;
 
-span, p {
-  @include text-p1;
-}
+  span,
+  p {
+    @include text-p1;
+  }
 
-h1 {
-  @include heading-h1-normal;
-}
+  h1 {
+    @include heading-h1-normal;
+  }
 
   // Small (mobile)
   @media (min-width: $breakpoint-sm) {

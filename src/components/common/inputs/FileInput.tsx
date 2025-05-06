@@ -13,17 +13,21 @@ export const FileInput: React.FC<Props> = ({ name }) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
+    // Save the file into formik's state
     formik.setFieldValue(name, file);
     formik.setFieldTouched(name, true, false);
 
+    // Check if file format is valid
     if (file.type !== "image/jpeg") {
       formik.setFieldError(name, "Only .jpg or .jpeg allowed");
     }
 
+    // Check file size (should be <= 5MB)
     if (file.size > 5 * 1024 * 1024) {
       formik.setFieldError(name, "File must be less than 5MB");
     }
 
+    // Check image dimensions (min: 70x70px)
     const img = new Image();
     img.onload = () => {
       if (img.width < 70 || img.height < 70) {

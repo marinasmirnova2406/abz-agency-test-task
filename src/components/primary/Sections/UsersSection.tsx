@@ -1,17 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { getAllUsers, User } from "../../../api/users";
+import { useUserContext } from "../../../context/UserContext";
 // Components
 import Button from "../../common/Button";
 import UserList from "../UserList";
 import Preloader from "../../common/Preloader";
 
 const UsersSection: React.FC = () => {
+  // Controls loading state
   const [loadState, setLoadState] = useState<"initial" | "more" | "done">(
     "initial"
   );
-  const [users, setUsers] = useState<User[]>([]);
+
+  //  Global users from context
+  const { users, setUsers, totalUsers, setTotalUsers } = useUserContext();
+
+  // How many cards currently visible
   const [cardsToShow, setCardsToShow] = useState<number>(6);
 
+  // Fetch all users on mount
   useEffect(() => {
     const loadUsers = async () => {
       setLoadState("initial");
@@ -22,8 +29,7 @@ const UsersSection: React.FC = () => {
           (a, b) => b.registration_timestamp - a.registration_timestamp
         );
         setUsers(sortedUsers);
-
-        console.log(allUsers.length);
+        setTotalUsers(sortedUsers.length);
       } catch (error) {
         console.error("Failed to load users:", error);
       } finally {
@@ -34,6 +40,14 @@ const UsersSection: React.FC = () => {
     loadUsers();
   }, []);
 
+  // Reset to 6 cards if users change (e.g., after registration)
+  useEffect(() => {
+    if (users.length > cardsToShow) {
+      setCardsToShow(6);
+    }
+  }, [users]);
+
+  // Show next 6 cards
   const handleShowMore = () => {
     setLoadState("more");
     setTimeout(() => {
@@ -49,7 +63,7 @@ const UsersSection: React.FC = () => {
 
         <UserList users={users.slice(0, cardsToShow)} />
 
-        {cardsToShow < users.length &&
+        {cardsToShow < totalUsers &&
           (loadState === "more" ? (
             <Preloader />
           ) : (

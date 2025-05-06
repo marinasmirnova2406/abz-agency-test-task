@@ -1,23 +1,26 @@
 @use "../../abstracts/mixins.scss" as *;
 @use "../../abstracts/variables.scss" as *;
 
+// Main header wrapper
 .header {
-    @include flex(column, center);
-    background-color: #FFFFFF;
+  @include flex(column, center);
+  background-color: #ffffff;
 
-    &__content {
-        height: 60px;
-        @include flex(row, space-between, center);
-    }
-
-    &__logo {
-        width: 104px;
-        height: 26px;
-    }
-
-    &__nav {
-        gap: 10px;
-        @include flex-center;
-    }
-
+  // Container for logo + nav
+  &__content {
+    height: 60px;
+    @include flex(row, space-between, center);
   }
+
+  // Logo size
+  &__logo {
+    width: 104px;
+    height: 26px;
+  }
+
+  // Navigation area (buttons or links)
+  &__nav {
+    gap: 10px;
+    @include flex-center;
+  }
+}

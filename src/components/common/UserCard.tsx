@@ -8,15 +8,18 @@ const UserCard: React.FC<{ user: User }> = ({ user }) => {
 
   const cardRef = useRef<HTMLDivElement | null>(null);
 
+  // Run once when component mounts
   useEffect(() => {
     const contents = cardRef.current?.querySelectorAll<HTMLElement>(
       ".user-card__field__content"
     );
+
+    // Check if text doesn't fit fully
     contents?.forEach((content) => {
       if (content.scrollWidth > content.clientWidth) {
         const field = content.parentElement;
         if (!field) return;
-
+        // Add tooltip only if it's really needed
         field.classList.add("has-tooltip");
 
         const tooltip = document.createElement("span");

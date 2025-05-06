@@ -1,15 +1,11 @@
 @use "../../abstracts/mixins.scss" as *;
 @use "../../abstracts/variables.scss" as *;
 
+// Section of the registration form
 .form-section {
   padding-top: 140px;
 
   &__content {
     @include flex(column, flex-start, center);
-  }
-
-  &__title {
-    text-align: center;
-    margin-bottom: 50px;
   }
 }

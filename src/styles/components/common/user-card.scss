@@ -1,6 +1,7 @@
 @use "../../abstracts/mixins.scss" as *;
 @use "../../abstracts/variables.scss" as *;
 
+// Base card container
 .user-card {
   @include flex(column, flex-start, center);
   max-width: 370px;
@@ -8,6 +9,7 @@
   background-color: #ffffff;
   border-radius: 16px;
 
+  // Avatar image
   &__img {
     width: 70px;
     height: 70px;
@@ -15,10 +17,12 @@
     margin-bottom: 20px;
   }
 
+  // Name spacing
   &__name {
     margin-bottom: 20px;
   }
 
+  // Generic field wrapper (name, email, phone etc.)
   &__field {
     width: 100%;
     height: 26px;
@@ -26,6 +30,7 @@
     position: relative;
     cursor: default;
 
+    // Field text (with overflow detection)
     &__content {
       overflow: hidden;
       white-space: nowrap;
@@ -39,11 +44,13 @@
       }
     }
 
+    // Tooltip trigger on overflow + hover
     &.has-tooltip:hover .user-card__field__tooltip {
       opacity: 1;
       pointer-events: auto;
     }
 
+    // Tooltip content (for overflowing text)
     &__tooltip {
       display: inline-block;
       position: absolute;
