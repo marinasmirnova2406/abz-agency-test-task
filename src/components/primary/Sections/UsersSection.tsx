@@ -63,7 +63,7 @@ const UsersSection: React.FC = () => {
   };
 
   return (
-    <section className="users-section">
+    <section id="users" className="users-section">
       <div className="users-section__content container">
         <h1 className="users-section__title">Working with GET request</h1>
 

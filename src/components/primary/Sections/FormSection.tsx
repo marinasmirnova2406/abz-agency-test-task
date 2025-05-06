@@ -4,7 +4,7 @@ import { RegisterForm } from "../../forms/RegisterForm";
 
 const FormSection: React.FC = () => {
   return (
-    <section className="form-section">
+    <section id="signup" className="form-section">
       <div className="form-section__content container">
         <RegisterForm />
       </div>

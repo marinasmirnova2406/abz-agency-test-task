@@ -3,6 +3,14 @@ import React from "react";
 import Button from "../../common/Button";
 
 const IntroSection: React.FC = () => {
+
+  const scrollTo = (id: string) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="intro-section">
       <div className="intro-section__overlay">
@@ -17,7 +25,7 @@ const IntroSection: React.FC = () => {
             mind. They should also be excited to learn, as the world of
             Front-End Development keeps evolving.
           </p>
-          <Button>Sign up</Button>
+          <Button onClick={() => scrollTo("signup")}>Sign up</Button>
         </div>
       </div>
     </section>
