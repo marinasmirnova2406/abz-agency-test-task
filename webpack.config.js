@@ -73,6 +73,9 @@ module.exports = (_, argv) => {
         : []),
     ],
     optimization: {
+      splitChunks: {
+        chunks: 'all',
+      },
       minimize: prod,
       minimizer: ["...", ...(prod ? [new CssMinimizerPlugin()] : [])],
     },
